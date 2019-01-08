@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stroop test vol 2</title>
+
+	<style type="text/css">
+        
+        .header {
+          margin: auto;
+          width: 50%;
+          padding: 10px;
+		    }
+
+		    h1 {
+          text-align: center;
+          font-size: 40px;
+		    }
+           
+        .box {
+          height: 130px;
+          width: 130px;
+          border-radius: 50%;
+          margin: 50px;
+          background-color: gray;
+        }
+
+        #button{
+
+        }
+ 
+        #rightbox {
+                 
+          float: right;
+
+        }
+
+        #leftbox {
+                 
+          float: left;
+
+        }
+
+        p {
+          font-size: 40px;
+
+        }
+        
+          
+  </style>
+
+
+</head>
+<body>
+
+
+
+<div class="header">
+	<h1>Reaction game</h1>
+<button id="button" type="button">Start the game </button>
+</div>
+
+<div  class="box" id="leftbox">
+    
+    <p id="left">LEFT</p>
+    <p id="right">RIGHT</p>
+
+</div>
+
+<div  class="box" id="rightbox">
+    
+    <p id="oikea">LEFT</p>
+    <p id="vasen">RIGHT</p>
+
+</div>
+
+<script>
+
+document.getElementById("leftbox").onclick = function () {
+               
+               document.getElementById("leftbox").style.display = "none"
+               
+           }
+
+document.getElementById("rightbox").onclick = function () {
+
+				document.getElementById("rightbox").style.display = "none";
+
+}
+
+
+</script>
+
+</body>
+</html>
