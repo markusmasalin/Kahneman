@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stroop test vol 2</title>
+
+	<style type="text/css">
+        
+		body {
+
+			text-align: center;
+		}
+            
+        p {
+            	font-size: 40px;
+
+            }
+
+        div {
+        	display: inline;
+
+        	margin: 10px;
+
+        }     	
+            
+    </style>
+    
+
+</head>
+<body>
+
+<div class="header">
+
+<h1>Reaction game</h1>
+
+<button onclick="startTheGame()">Start the game </button>
+
+<p id="command"></p>
+</div>
+
+<div id="left"></div>
+
+<div id="right"></div>
+
+
+<span id="timeTaken"></span>
+
+
+<script>
+	
+	var counter = 0;
+
+	var start = 0;
+
+	function startTheGame () {
+
+			counter++;			
+			
+			if (counter === 1) {
+
+
+				start = new Date().getTime();
+
+			} 
+
+			var random =  Math.floor(Math.random() * 2 );
+
+
+			if (random === 0) {
+
+				document.getElementById("command").innerHTML = "Click the word on the left.";
+
+			} else {
+
+				document.getElementById("command").innerHTML = "Click the word on the right.";
+
+			};
+
+			function makeShapeAppear() {
+                
+                var textLeft = ["LEFT", "RIGHT"];
+
+                var randomNumberLeft = Math.floor(Math.random() *2);
+
+                var textRight = ["LEFT", "RIGHT"];
+
+                var randomNumberRight = Math.floor(Math.random() * 2 );
+
+
+                document.getElementById("left").setAttribute("style", "background-color:grey; width:200px; height:100px; top:400px; left:150px; font-size:40px"); 
+
+                document.getElementById("left").innerHTML = textLeft[randomNumberLeft];
+
+                document.getElementById("right").setAttribute("style", "background-color:grey; width:200px; height:100px; top:200px; right:150px; font-size:40px"); 
+
+                document.getElementById("right").innerHTML = textRight[randomNumberRight];
+        
+            }
+
+            function appearAfterDelay() {
+                
+                setTimeout(makeShapeAppear, Math.random());
+                
+            }
+
+            appearAfterDelay();
+           
+
+        	document.getElementById("left").onclick = function () {
+
+        		document.getElementById("left").style.display = "none";
+        		document.getElementById("right").style.display = "none";
+
+        		if (counter < 5){
+
+        		startTheGame ();
+
+        		} 
+
+        	}
+
+        	document.getElementById("right").onclick = function () {
+
+        		document.getElementById("left").style.display = "none";
+        		document.getElementById("right").style.display = "none";
+
+        		if (counter < 5){
+
+        		startTheGame ();
+
+
+        		} else {
+
+        			var end = new Date().getTime();
+              var timeTaken = (end - start) / 1000;
+                
+                document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+    
+        			}
+        		}
+
+   		}
+
+</script>
+
+</body>
+</html>
